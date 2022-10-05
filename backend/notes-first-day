@@ -1,6 +1,0 @@
-Assumed post request was made correctly
-    tested in postman and received 500 status code
-    checked /api/users in browser and receive [object Object]
-    now receiving [object Object] in postman too
-
- Using the async and await keywords instead simplifies the syntax for making asynchronous calls by allowing your asynchronous code to look more synchronous.
