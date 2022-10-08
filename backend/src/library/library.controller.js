@@ -16,8 +16,14 @@ const bookExists = async (req, res, next) => {
 }
 
 async function list(req, res) {
-    const data = await libraryService.list()
-    res.json({ data })
+    const { tags } = req.query
+    let books
+    if (tags) {
+        books = await libraryService.search(tags)
+    } else {
+        books = await libraryService.list()
+    }        
+    res.json({ data: books })
 }
 
 async function read(req, res) {

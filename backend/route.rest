@@ -10,6 +10,10 @@ GET http://localhost:5000/library
 
 ###
 
+GET http://localhost:5000/library?tags=thriller
+
+###
+
 GET http://localhost:5000/library/67
 
 ###
