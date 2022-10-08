@@ -3,3 +3,16 @@ GET http://localhost:5000/api/users/2
 ###
 
 GET http://localhost:5000/api/users
+
+###
+
+GET http://localhost:5000/library
+
+###
+
+POST http://localhost:5000/library
+Content-Type: application/json
+
+{
+    "isbn": 9780803237759
+}

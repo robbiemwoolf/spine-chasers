@@ -8,7 +8,7 @@ function list() {
 function create(book) {
     return knex('library')
         .insert(book, '*')
-        .first()
+        .then((createdBooks) => createdBooks[0])
 }
 
 module.exports = {
