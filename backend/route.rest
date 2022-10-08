@@ -10,9 +10,6 @@ GET http://localhost:5000/library
 
 ###
 
-POST http://localhost:5000/library
-Content-Type: application/json
+GET http://localhost:5000/library/67
 
-{
-    "isbn": 9780803237759
-}
+###

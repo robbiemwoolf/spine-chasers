@@ -5,13 +5,13 @@ function list() {
         .select('*')
 }
 
-function create(book) {
+function read(book_id) {
     return knex('library')
-        .insert(book, '*')
-        .then((createdBooks) => createdBooks[0])
+        .where({ book_id })
+        .first()
 }
 
 module.exports = {
-    create,
-    list
+    list,
+    read,
 }
