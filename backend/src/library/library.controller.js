@@ -1,4 +1,5 @@
 const e = require('express')
+const axios = require('axios')
 const asyncErrorBoundary = require('../errors/asyncErrorBoundary')
 const libraryService = require('./library.service')
 
@@ -30,6 +31,26 @@ async function read(req, res) {
     const book = res.locals.book
     res.json({ data: book })
 }
+
+async function apiBook() {
+    const API_KEY = 'AIzaSyCIVNf2NvLN5UwJ0MaddHd0v70V37iexQ4'
+
+    const { data } = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${API_KEY}`)
+    const response = data.items[0]
+    const bookInfo = response.volumeInfo
+    
+    const title = bookInfo.title
+    console.log(title)
+    // author returns as an array of authors
+    const author = bookInfo.authors
+    // description has inconsistent format
+    const description = bookInfo.description
+    const rating = bookInfo.averageRating
+    const imageAccess = bookInfo.imageLinks
+    const image_url = imageAccess.thumbnail       
+}
+
+apiBook()
 
 module.exports = {
     list: [
