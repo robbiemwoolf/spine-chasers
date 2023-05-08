@@ -7,7 +7,7 @@
     "preinstall": "cd ./backend && npm install",
     "install": "cd ./frontend && npm install",
     "start:backend": "npm --prefix ./backend start",
-    "start:frontend": "npm --prefix ./frontend start",
+    "start:frontend": "npm --prefix ./frontend dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
