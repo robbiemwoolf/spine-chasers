@@ -2,7 +2,6 @@ const morgan = require('morgan') // small logging package that will print useful
 const express = require('express')
 const cors = require('cors')
 
-const usersRouter = require('./users/users.router')
 const libraryRouter = require('./library/library.router')
 const notFound = require('./errors/notFound')
 const errorHandler = require('./errors/errorHandler')
@@ -15,7 +14,6 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/library', libraryRouter)
-app.use('/api/users', usersRouter)
 
 // Not found handler
 app.use(notFound)
