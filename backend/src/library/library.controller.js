@@ -1,9 +1,6 @@
 const axios = require('axios')
 const asyncErrorBoundary = require('../errors/asyncErrorBoundary')
 const libraryService = require('./library.service')
-const hasProperties = require('../errors/hasProperties')
-const hasRequiredProperites = hasProperties('isbn')
-// const {arrayForBatchUpdate} = require('../db/fixtures/books')
 
 const VALID_PROPERTIES = [
     "isbn",
@@ -11,7 +8,8 @@ const VALID_PROPERTIES = [
     "author",
     "description",
     "rating",
-    "image_url"
+    "image_url",
+    "tags"
 ]
 
 function hasOnlyValidProperties(req, res, next) {
@@ -43,7 +41,7 @@ const bookExists = async (req, res, next) => {
 }
 
 async function updateExisting(req, res) {
-    const { isbn } = res.locals.book
+    const { isbn, tags } = res.locals.book
     // console.log('updateExisting-isbn: ', isbn)
     const API_KEY = 'AIzaSyCIVNf2NvLN5UwJ0MaddHd0v70V37iexQ4'
 
@@ -53,13 +51,14 @@ async function updateExisting(req, res) {
     
     const titleAPI = bookInfo.title
     const authorAPI = bookInfo.authors     // author returns as an array of authors
-    const descriptionAPI = bookInfo.description.substring(0, 1000) // description has inconsistent format, now held at 1000 characters
+    const descriptionAPI = bookInfo.description.substring(0, 2000) // description has inconsistent format, now held at 1000 characters
     const ratingAPI = bookInfo.averageRating
     const imageAccess = bookInfo.imageLinks
     const image_urlAPI = imageAccess.thumbnail  
     
     const updatedBook = {
         isbn: isbn,
+        tags: tags,
         title: titleAPI,
         author: authorAPI,
         description: descriptionAPI,
@@ -72,8 +71,7 @@ async function updateExisting(req, res) {
 }
 
 async function updateNew(req, res, next) {
-    const { isbn } = req.body
-    // console.log('updateNew-isbn: ', isbn)
+    const { isbn, tags } = req.body
     const API_KEY = 'AIzaSyCIVNf2NvLN5UwJ0MaddHd0v70V37iexQ4'
 
     const { data } = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${API_KEY}`)
@@ -82,13 +80,14 @@ async function updateNew(req, res, next) {
     
     const titleAPI = bookInfo.title
     const authorAPI = bookInfo.authors     // author returns as an array of authors
-    const descriptionAPI = bookInfo.description.substring(0, 1000) // description has inconsistent format, now held to 1000 characters
+    const descriptionAPI = bookInfo.description.substring(0, 2000) // description has inconsistent format, now held to 1000 characters
     const ratingAPI = bookInfo.averageRating
     const imageAccess = bookInfo.imageLinks
     const image_urlAPI = imageAccess.thumbnail 
     
     const updatedBook = {
         isbn: isbn,
+        tags: tags,
         title: titleAPI,
         author: authorAPI,
         description: descriptionAPI,
@@ -130,6 +129,7 @@ async function destroy(req, res) {
 
 module.exports = {
     create: [
+        asyncErrorBoundary(hasOnlyValidProperties),
         asyncErrorBoundary(updateNew),
         asyncErrorBoundary(create)
     ],

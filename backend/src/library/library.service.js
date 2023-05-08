@@ -8,7 +8,8 @@ function create(book) {
             author: book.author,
             rating: book.rating,
             image_url: book.image_url,
-            description: book.description
+            description: book.description,
+            tags: book.tags
         })
         .returning('*')
 }
@@ -48,7 +49,8 @@ function update(updatedBook) {
             author: b.author,
             rating: b.rating,
             image_url: b.image_url,
-            description: b.description
+            description: b.description,
+            tags: b.tags
         })
         .returning('*')
 }
