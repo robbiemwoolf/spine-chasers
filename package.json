@@ -1,0 +1,27 @@
+{
+  "name": "spine-chasers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "cd ./backend && npm install",
+    "install": "cd ./frontend && npm install",
+    "start:backend": "npm --prefix ./backend start",
+    "start:frontend": "npm --prefix ./frontend start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robbiemwoolf/spine-chasers.git"
+  },
+  "keywords": [],
+  "author": "Robbie Woolf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robbiemwoolf/spine-chasers/issues"
+  },
+  "homepage": "https://github.com/robbiemwoolf/spine-chasers#readme",
+  "dependencies": {
+    "axios": "^1.1.2"
+  }
+}
