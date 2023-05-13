@@ -2,23 +2,25 @@
 
 ## A new way to manage and interact with your physical library
 
-    Spine Chasers encourages you to read and interact with your books again, so get ready to crack some spines!
+Spine Chasers encourages you to read and interact with your books again, so get ready to crack some spines!
 
-    You can add a book to your collection with just the ISBN, don't worry we will fill in the rest. We use the ISBN to retrieve the title, author, book cover, description, and rating. If you wish, you can add custom tags to your book to enable personalized book categories.
+You can add a book to your collection with just the ISBN, don't worry we will fill in the rest. We use the ISBN to retrieve the title, author, book cover, description, and rating. If you wish, you can add custom tags to your book to enable personalized book categories.
 
 This project is still in the early stages if you wish to start digitally tracking your books today follow these [instructions](#run-server-locally).
 
-    All book lovers hit the phase where they are buying more books than they are reading. This application allows you to browse your library quickly. Seeing covers, descriptions, and ratings at a glance in the same way we have gotten accustomed to viewing shows and movies on Netflix.
+All book lovers hit the phase where they are buying more books than they are reading. This application allows you to browse your library quickly. Seeing covers, descriptions, and ratings at a glance in the same way we have gotten accustomed to viewing shows and movies on Netflix.
 
-    See custom book lists populated with books you own like: 
+See custom book lists populated with books you own like:
 
-        "Who done it?" (mysteries/thrillers),
-        "Visually Stunning" (graphicnovels),
-        "The Great Outdoors" (nature/environment)
+"Who done it?" (mystery/thriller)
 
-    The lists will be more niche depending on your personalized tags.
+"Visually Stunning" (graphicnovel)
 
-    Overwhelmed with all the options? No problem! We will pick for you. After all, this project started from me not being able to choose my own book on a gloomy Sunday morning.
+"The Great Outdoors" (nature/environment)
+
+The lists will be more niche depending on your personalized tags.
+
+Overwhelmed with all the options? No problem! We will pick for you. After all, this project started from me not being able to choose my own book on a gloomy Sunday morning.
 
 <!--
  ## visual helper here
@@ -35,7 +37,7 @@ What did you learn while building this project? What challenges did you face and
 
 ## Run Server Locally
 
-    Note: These are the instructions to run the server ONLY. Instructions will be updated when the client side is ready.
+Note: These are the instructions to run the server ONLY. Instructions will be updated when the client side is ready.
 
 ### Clone the project
 
@@ -63,7 +65,7 @@ What did you learn while building this project? What challenges did you face and
 
 ### Add your database url
 
-    Copy the following code to your newly created file (replace 'YOUR_URL' with your database url)
+Copy the following code to your newly created file (replace 'YOUR_URL' with your database url)
 
 ```bash
     DATABASE_URL=YOUR_URL
@@ -81,16 +83,16 @@ After the installation is complete and you have your server up and running, you 
 
 Follow the instructions on the Postman website to install the application. Once open follow these steps to add your first book.
 
-    1. Change request to POST.
+1. Change request to POST.
 
-    2. Make the request at the following url: 
+2. Make the request at the following url: 
 
 ```http://localhost:5000/library/```
 
 
-    3. Below this click 'body', choose 'raw', change drop down to 'JSON'.
+3. Below this click 'body', choose 'raw', change drop down to 'JSON'.
 
-    4. Follow this format for the body request:
+4. Follow this format for the body request:
 
 ```
     { 
@@ -103,13 +105,13 @@ Follow the instructions on the Postman website to install the application. Once 
     }
 ```
 
-    Note only the isbn is required, if you do not wish to submit custom tags follow the following format:
+Note only the isbn is required, if you do not wish to submit custom tags follow the following format:
 
 ``` { "isbn" : 9781620976081 } ```
 
-    5. Now you are ready to click the Send button.
+5. Now you are ready to click the Send button.
 
-    You will receive a confirmation with the book details. It should look similar to:
+You will receive a confirmation with the book details. It should look similar to:
 
 ```
 {
