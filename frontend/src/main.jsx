@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/comics",
-        element: [<Header key="head" />, <AllComics key="comi" />],
+        element: [<Header key="head" />, <AllComics key="comic" />],
     }
 ])
 
