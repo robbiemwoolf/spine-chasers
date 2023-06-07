@@ -23,6 +23,7 @@ function destroy(isbn) {
 
 function list() { 
     return knex('library')
+        .whereNotNull('title')
         .select('*')
 }
 
@@ -37,6 +38,7 @@ function search(tag) {
     return knex
         .from('library')
         .whereRaw('? = ANY(tags)', tag)
+        .whereNotNull('title')
 }
 
 function update(updatedBook) {
