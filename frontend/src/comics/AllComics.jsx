@@ -17,19 +17,22 @@ export default function AllComics() {
         fetchComics()
     }, [])
 
-    const loaded = comics.map((comic) => {
+    const loaded = comics.map((book) => {
         return (
-            <div key={comic.id}>
-                <p>{comic.title}</p>
-                <img src={comic.image_url} alt="cover" />
+            <div key={book.id} className='allHolder'>
+                <img className='cover' src={book.image_url} alt="cover" />
             </div>
         )
     })
 
     return (
         <>
-            <h1>All Comics</h1>
-            { comics ? loaded : <p>Loading...</p> }
+          <div className='container'>
+                <h2 className='groupTitle'>Graphic Novels</h2>
+                <div className='all'>
+                    { comics ? loaded : <p>Loading...</p> }
+                </div>
+            </div>
         </>
     )
 }

@@ -19,18 +19,20 @@ export default function AllBooks() {
 
     const loaded = books.map((book) => {
         return (
-            <div key={book.id}>
-                <p>{book.title}</p>
-                <p>{book.isbn}</p>
-                <img src={book.image_url} alt="cover" />
+            <div key={book.id} className='allHolder'>
+                <img className='cover' src={book.image_url} alt="cover" />
             </div>
         )
     })
 
     return (
         <>
-            <h1>All Books</h1>
-            { books ? loaded : <p>Loading...</p> }
+            <div className='container'>
+                <h2 className='groupTitle'>All Books</h2>
+                <div className='all'>
+                    { books ? loaded : <p>Loading...</p> }
+                </div>
+            </div>
         </>
     )
 }
