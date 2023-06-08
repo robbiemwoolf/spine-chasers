@@ -1,0 +1,27 @@
+h2 {
+    font-size: large;
+}
+
+.group {
+    display: flex;
+    padding: 0px 5px;
+}
+
+.coverHolder {
+    padding: 0px 5px;
+}
+
+.cover {
+    width: 125px;
+    height: 180px;
+    box-shadow: 3px 4px 4px whitesmoke  
+}
+
+.all {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.allHolder {
+    padding: 5px;
+}
